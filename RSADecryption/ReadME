@@ -1,0 +1,16 @@
+RSA Decryption with Public Key Components
+This Python program computes the plaintext of an RSA-encrypted message using only the public key components by factoring the public modulus 𝑁
+N to find the private key 𝑑. This program includes a simple user interface for input. 
+Explanation 
+gcd Function
+Computes the greatest common divisor (GCD). 
+mod_inverse Function
+Uses the Extended Euclidean Algorithm to find the modular inverse. 
+trial_division Function
+A basic method to factorize 𝑁. Note that this works only for small 𝑁. For larger 𝑁, you would need more advanced factorization methods or tools.
+
+rsa_decrypt Function
+Decrypts the RSA-encrypted message using the given private exponent (d) and public modulus (N).
+
+main Function
+Prompts the user for the encrypted message, public modulus, and public exponent, then performs factorization, computes d, decrypts the message, and prints the plaintext.
