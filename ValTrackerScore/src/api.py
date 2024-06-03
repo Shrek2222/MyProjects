@@ -1,23 +1,26 @@
 import requests
 
-API_KEY = 'RGAPI-1d32aa88-4a5a-4943-b1e7-95036234fadc'
-BASE_URL = 'https://na.api.riotgames.com/val/'
+API_KEY = 'c5f8b7b2-1cce-4959-8dac-03571a8bc774'
+BASE_URL = 'https://public-api.tracker.gg/v2/valorant/standard/profile/riot/'
 
-def get_player_stats(player_id):
-    url = f'{BASE_URL}/v1/players/by-name/{player_id}'
-    headers = {'X-Riot-Token': API_KEY}
+def get_player_stats(player_name, tag):
+    url = f'{BASE_URL}{player_name}%23{tag}'
+    headers = {
+        'TRN-Api-Key': API_KEY
+    }
     response = requests.get(url, headers=headers)
     if response.status_code == 200:
         return response.json()
     else:
+        print(f"Error: {response.status_code} - {response.text}")
         return None
 
 # Example usage
 if __name__ == "__main__":
-    player_id = 'Eggsterr#NJLTC'
-    player_stats = get_player_stats(player_id)
+    player_name = 'Eggsterr'
+    tag = 'NJLTC'
+    player_stats = get_player_stats(player_name, tag)
     if player_stats:
         print(player_stats)
     else:
         print("Error fetching player stats")
-
