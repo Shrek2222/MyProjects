@@ -1,6 +1,6 @@
 import requests
 
-API_KEY = 'c5f8b7b2-1cce-4959-8dac-03571a8bc774'
+API_KEY = 'removed private information'
 BASE_URL = 'https://public-api.tracker.gg/v2/valorant/standard/profile/riot/'
 
 def get_player_stats(player_name, tag):
